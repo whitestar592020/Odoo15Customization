@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_custom_cv_report_preview" model="ir.actions.report">
+            <field name="name">Custom CV Report Preview</field>
+            <field name="model">custom.cv</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">custom_cv.custom_cv_report_preview</field>
+            <field name="report_file">custom_cv.custom_cv_report_preview</field>
+            <field name="paperformat_id" ref="custom_cv.paper_format_custom_cv"/>
+        </record>
+
+        <template id="custom_cv_report_preview">
+            <t t-call="custom_cv.custom_cv_report_template"/>
+        </template>
+    </data>
+</odoo>

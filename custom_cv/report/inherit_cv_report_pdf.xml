@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="inherit_cv_report_pdf" inherit_id="curriculum_vitae.standard_cv_report_template">
+            <xpath expr="//div/t[last()]" position="inside">
+                <t t-if="doc.biography">
+                    <div style="page-break-before: always;">
+                        <h4 style="background-color: green; color: white;">Biography</h4>
+                        <div style="width: 100%; min-height: 100px;">
+                            <span t-field="doc.biography"/>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

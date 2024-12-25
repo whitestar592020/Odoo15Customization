@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_cv_view_kanban" model="ir.ui.view">
+            <field name="name">custom.cv.kanban</field>
+            <field name="model">custom.cv</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="image"/>
+                    <field name="name"/>
+                    <field name="job_title"/>
+                    <field name="address"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('custom.cv', 'image', record.id.raw_value)"
+                                         t-att-alt="record.name.value" t-att-title="record.name.value"/>
+                                </div>
+
+                                <div class="oe_kanban_details">
+                                    <strong><field name="name"/></strong><br/>
+                                    <field name="job_title"/><br/>
+                                    <field name="address"/>
+                                </div>
+
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a role="button" class="dropdown-toggle o-no-caret btn"
+                                       data-toggle="dropdown" data-display="static" title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v"/>
+                                    </a>
+                                    <div role="menu" class="dropdown-menu">
+                                        <a role="menuitem" class="dropdown-item" type="delete">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

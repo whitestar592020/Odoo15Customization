@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_cv_view_form" model="ir.ui.view">
+            <field name="name">custom.cv.form</field>
+            <field name="model">custom.cv</field>
+            <field name="arch" type="xml">
+                <form string="Custom CV">
+                    <field name="active" invisible="1"/>
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                        <button type="object"
+                                name="action_confirm"
+                                string="Confirm"
+                                class="oe_highlight"
+                                states="draft"/>
+                        <button type="object"
+                                name="action_seek"
+                                string="Seek"
+                                class="oe_highlight"
+                                states="confirm"/>
+                        <button type="object"
+                                name="action_done"
+                                string="Done"
+                                class="oe_highlight"
+                                states="seek"/>
+                        <button type="object"
+                                name="action_draft"
+                                string="Mark as Draft"
+                                states="done"/>
+                    </header>
+
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object"
+                                    name="action_paper"
+                                    class="oe_stat_button"
+                                    icon="fa-paperclip">
+                                <field name="paper_count" widget="statinfo" string="Papers"/>
+                            </button>
+                            <button type="action"
+                                    name="%(custom_cv.action_custom_cv_report_preview)d"
+                                    icon="fa-id-card">
+                                Preview
+                            </button>
+                        </div>
+
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"
+                                       attrs="{'readonly': [('state', 'in', ('confirm', 'seek', 'done'))]}"/>
+                            </h1>
+                            <label for="job_title" class="oe_edit_only"/>
+                            <h3>
+                                <field name="job_title"/>
+                            </h3>
+                        </div>
+
+                        <group string="PROFILE">
+                            <field name="profile" nolabel="1"/>
+                        </group>
+
+                        <group>
+                            <group string="CONTACT">
+                                <field name="phone" widget="phone"/>
+                                <field name="email" widget="email"/>
+                                <field name="social" widget="url"/>
+                                <field name="address"/>
+                            </group>
+                            <group string="PERSONAL DETAILS">
+                                <field name="dob"/>
+                                <field name="nationality"/>
+                                <field name="gender"/>
+                                <field name="marital"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Education">
+                                <field name="education_line_ids">
+                                    <tree>
+                                        <field name="edu_id"/>
+                                        <field name="edu_center"/>
+                                        <field name="period_from"/>
+                                        <field name="period_to"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="edu_id" required="1"/>
+                                                <field name="edu_center"/>
+                                            </group>
+                                            <group>
+                                                <field name="period_from"/>
+                                                <field name="period_to"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page string="Experiences">
+                                <field name="experience_line_ids">
+                                    <tree>
+                                        <field name="exp_id"/>
+                                        <field name="company"/>
+                                        <field name="period_from"/>
+                                        <field name="period_to"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="exp_id"/>
+                                                <field name="company"/>
+                                            </group>
+                                            <group>
+                                                <field name="period_from"/>
+                                                <field name="period_to"/>
+                                            </group>
+                                        </group>
+                                        <group string="Responsibilities">
+                                            <field name="responsibility" nolabel="1"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page string="Projects">
+                                <field name="project_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="type"/>
+                                        <field name="link" widget="url"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="name" required="1"/>
+                                                <field name="type"/>
+                                            </group>
+                                            <group>
+                                                <field name="link" widget="url"/>
+                                            </group>
+                                        </group>
+                                        <group string="Description">
+                                            <field name="description" nolabel="1"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page string="Languages">
+                                <field name="language_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="language_id"/>
+                                        <field name="level"/>
+                                        <field name="progress" widget="progressbar"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

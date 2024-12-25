@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_cv_sample_cv" model="custom.cv">
+            <field name="name">Sample CV</field>
+            <field name="job_title">Odoo Developer</field>
+        </record>
+    </data>
+</odoo>

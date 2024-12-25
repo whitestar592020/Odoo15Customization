@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_cv,access.custom.cv,model_custom_cv,base.group_user,1,1,1,1
+access_education,access.education,model_education,base.group_user,1,1,1,1
+access_education_line,access.education.line,model_education_line,base.group_user,1,1,1,1
+access_experience,access.experience,model_experience,base.group_user,1,1,1,1
+access_experience_line,access.experience.line,model_experience_line,base.group_user,1,1,1,1
+access_project,access.project,model_project,base.group_user,1,1,1,1
+access_language,access.language,model_language,base.group_user,1,1,1,1
+access_language_line,access.language.line,model_language_line,base.group_user,1,1,1,1
+access_paper,access.paper,model_paper,base.group_user,1,1,1,1

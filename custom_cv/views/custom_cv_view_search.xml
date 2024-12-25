@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_cv_view_search" model="ir.ui.view">
+            <field name="name">custom.cv.search</field>
+            <field name="model">custom.cv</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="job_title"/>
+                    <field name="address"/>
+
+                    <filter name="filter_create_date" string="Creation Date" date="create_date"/>
+
+                    <group>
+                        <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                    </group>
+
+                    <searchpanel>
+                        <field name="gender" string="Gender" icon="fa-users" enable_counters="1"/>
+                        <field name="marital" string="Marital" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

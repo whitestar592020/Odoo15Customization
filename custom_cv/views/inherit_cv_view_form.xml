@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_cv_view_form" model="ir.ui.view">
+            <field name="name">inherit.cv.view.form</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='name']" position="before">
+                    <field name="is_favorite" widget="boolean_favorite" class="oe_read_only"/>
+                </xpath>
+
+                <xpath expr="//field[@name='address']" position="attributes">
+                    <attribute name="string">Address</attribute>
+                </xpath>
+                <xpath expr="//field[@name='gender']" position="attributes">
+                    <attribute name="options">{'horizontal': true}</attribute>
+                </xpath>
+
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Biography">
+                        <field name="biography" placeholder="Please enter the biography..."/>
+                    </page>
+                </xpath>
+
+                <xpath expr="//header" position="inside">
+                    <button type="object"
+                            name="action_seek"
+                            string="Seek"
+                            class="oe_highlight"
+                            states="confirm"/>
+                </xpath>
+                <xpath expr="//header/button[@name='action_done']" position="attributes">
+                    <attribute name="states">seek</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

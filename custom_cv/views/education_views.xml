@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_education" model="ir.actions.act_window">
+            <field name="name">Education</field>
+            <field name="res_model">education</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Education!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="group_menu_custom_cv_info"
+                  name="Custom CV Info"
+                  parent="curriculum_vitae.first_level_menu_configuration"/>
+
+        <menuitem id="action_menu_education"
+                  name="Education"
+                  parent="group_menu_custom_cv_info"
+                  action="action_education"/>
+    </data>
+</odoo>

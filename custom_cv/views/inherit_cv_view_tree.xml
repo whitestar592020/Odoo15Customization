@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_cv_view_tree" model="ir.ui.view">
+            <field name="name">inherit.cv.view.tree</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="export_xlsx">0</attribute>
+                    <attribute name="default_order">name</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='address']" position="attributes">
+                    <attribute name="string">Address</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="is_favorite" widget="boolean_favorite" optional="show"/>
+                </xpath>
+
+                <xpath expr="//tree[last()]" position="inside">
+                    <field name="active" widget="boolean_toggle"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

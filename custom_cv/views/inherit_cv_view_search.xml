@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_cv_view_search" model="ir.ui.view">
+            <field name="name">inherit.cv.view.search</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="address" string="Address"/>
+                </xpath>
+
+                <xpath expr="//filter[@name='filter_male']" position="before">
+                    <filter name="filter_favorites" string="Favorites"
+                            domain="[('is_favorite', '=', True)]"/>
+                    <separator/>
+                </xpath>
+
+                <xpath expr="//group/filter[@name='group_by_gender']" position="after">
+                    <filter name="group_by_marital" string="Marital Status"
+                            context="{'group_by': 'marital'}"/>
+                </xpath>
+
+                <xpath expr="//searchpanel" position="inside">
+                    <field name="marital" string="Marital Status"
+                           icon="fa-users" enable_counters="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

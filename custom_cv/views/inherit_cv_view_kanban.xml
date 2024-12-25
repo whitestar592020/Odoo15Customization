@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_cv_view_kanban" model="ir.ui.view">
+            <field name="name">inherit.cv.view.kanban</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="default_order">name</attribute>
+                </xpath>
+
+                <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">
+                    <hr/>
+                    <field name="is_favorite" widget="boolean_favorite"/>
+                    <span class="float-right">
+                        <field name="create_uid" widget="many2one_avatar_user"/>
+                    </span>
+                </xpath>
+
+                <xpath expr="//div[contains(@t-attf-class, '#{kanban_color(record.color.raw_value)}')]"
+                       position="attributes">
+                    <attribute name="t-attf-class">
+                        oe_kanban_global_click #{kanban_color(record.color.raw_value)}
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_cv_view_graph" model="ir.ui.view">
+            <field name="name">inherit.cv.view.graph</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_graph"/>
+            <field name="arch" type="xml">
+                <xpath expr="//graph" position="attributes">
+                    <attribute name="type">pie</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_cv_view_pivot" model="ir.ui.view">
+            <field name="name">inherit.cv.view.pivot</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//pivot" position="attributes">
+                    <attribute name="display_quantity">0</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_cv_view_calendar" model="ir.ui.view">
+            <field name="name">inherit.cv.view.calendar</field>
+            <field name="model">standard.cv</field>
+            <field name="inherit_id" ref="curriculum_vitae.standard_cv_view_calendar"/>
+            <field name="arch" type="xml">
+                <xpath expr="//calendar" position="inside">
+                    <field name="currency_id" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='salary']" position="attributes">
+                    <attribute name="widget">monetary</attribute>
+                    <attribute name="options">{'currency_field': 'currency_id'}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

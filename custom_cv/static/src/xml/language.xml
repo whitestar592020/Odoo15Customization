@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="LanguageSystray">
+        <div class="dropdown">
+            <a class="dropdown-toggle o-no-caret o-dropdown--narrow"
+               data-toggle="dropdown" data-display="static"
+               title="Languages" href="#" role="button">
+                <i class="fa fa-globe" role="img"/>
+                <span id="language_counter" class="badge badge-pill"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <div id="language_list" role="menuitem"/>
+            </div>
+        </div>
+    </t>
+</templates>

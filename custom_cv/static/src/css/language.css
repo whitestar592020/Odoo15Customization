@@ -1,0 +1,18 @@
+#language_list {
+    width: max-content;
+    padding: 5px;
+}
+
+#language_list a:hover {
+    color: green;
+}
+
+#language_counter {
+    margin-top: -0.8rem;
+    margin-right: 0;
+    margin-left: -0.6rem;
+    background: brown;
+    color: white;
+    vertical-align: super;
+    font-size: 0.7em;
+}

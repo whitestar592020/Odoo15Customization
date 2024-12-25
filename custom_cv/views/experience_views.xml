@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_experience" model="ir.actions.act_window">
+            <field name="name">Experience</field>
+            <field name="res_model">experience</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Experience!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="action_menu_experience"
+                  name="Experience"
+                  parent="group_menu_custom_cv_info"
+                  action="action_experience"
+                  sequence="11"/>
+    </data>
+</odoo>

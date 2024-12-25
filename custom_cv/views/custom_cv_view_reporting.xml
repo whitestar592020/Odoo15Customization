@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_custom_cv_analysis" model="ir.actions.act_window">
+            <field name="name">Custom CV Analysis</field>
+            <field name="res_model">custom.cv</field>
+            <field name="view_mode">graph,pivot,calendar</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data for analysis!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="action_menu_custom_cv_analysis"
+                  name="Custom CV Analysis"
+                  parent="curriculum_vitae.first_level_menu_reporting"
+                  action="action_custom_cv_analysis"
+                  sequence="11"/>
+
+        <record id="custom_cv_view_graph" model="ir.ui.view">
+            <field name="name">custom.cv.graph</field>
+            <field name="model">custom.cv</field>
+            <field name="arch" type="xml">
+                <graph stacked="0" string="Custom CV">
+                    <field name="job_title"/>
+                    <field name="name"/>
+                    <field name="dob" interval="year"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="custom_cv_view_pivot" model="ir.ui.view">
+            <field name="name">custom.cv.pivot</field>
+            <field name="model">custom.cv</field>
+            <field name="arch" type="xml">
+                <pivot string="Custom CV">
+                    <field name="gender" type="row"/>
+                    <field name="marital" type="row"/>
+                    <field name="job_title" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="custom_cv_view_calendar" model="ir.ui.view">
+            <field name="name">custom.cv.calendar</field>
+            <field name="model">custom.cv</field>
+            <field name="arch" type="xml">
+                <calendar date_start="create_date"
+                          mode="month"
+                          color="gender">
+                    <field name="name"/>
+                    <field name="job_title"/>
+                    <field name="address"/>
+                    <field name="gender" filters="1" invisible="1"/>
+                </calendar>
+            </field>
+        </record>
+    </data>
+</odoo>
